@@ -1,0 +1,28 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+main {
+    /* Calculadora */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+main select {
+    margin: 10px;
+}
+
+main .radio-buttons {
+    margin: 5px;
+}
+
+main h1 {
+    margin: 10px;
+}
+
+main ul li {
+    margin: 5px;
+}

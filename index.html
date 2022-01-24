@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/stylesheet.css">
+    <script type="text/javascript" src="js/scripts.js"></script>
+    <title>Seleção de Usuários</title>
+</head>
+<body>
+    <main>
+        <select name="names" id="names" onchange="request()">
+            <option value="0" disabled="true" selected="true">Selecione um usuário</option>
+            <option value="1">Leanne Graham</option>
+            <option value="2">Ervin Howell</option>
+            <option value="3">Clementine Bauch</option>
+            <option value="4">Patricia Lebsack</option>
+            <option value="5">Chelsey Dietrich</option>
+            <option value="6">Mrs. Dennis Schulist</option>
+            <option value="7">Kurtis Weissnat</option>
+            <option value="8">Nicholas Runolfsdottir V</option>
+            <option value="9">Glenna Reichert</option>
+            <option value="10">Clementina DuBuque</option>
+        </select>
+        
+        <div class="radio-buttons">
+            <div>
+                <input type="radio" name="users" id="us-posts" onclick="request()">
+                <label for="us-posts">User Posts</label>
+            </div>
+        
+            <div>
+                <input type="radio" name="users" id="us-todos" onclick="request()">
+                <label for="us-todos">User TODOs</label>
+                <div id="todos-filter" style="display: none;" onchange="request()">
+                    <div>
+                        <input type="radio" name="tasks" id="us-todos-all" checked="true">
+                        <label for="us-todos-all">Todas as tarefas</label>
+                    </div>
+                
+                    <div>
+                        <input type="radio" name="tasks" id="us-todos-finished">
+                        <label for="us-todos-finished">Tarefas Finalizadas</label>
+                    </div>
+                
+                    <div>
+                        <input type="radio" name="tasks" id="us-todos-not_finished">
+                        <label for="us-todos-not_finished">Tarefas Não Finalizadas</label>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <h1 id="view-title"></h1>
+        <ul id="view-list"></ul>
+    </main>
+</body>
+</html>
