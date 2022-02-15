@@ -32,10 +32,35 @@ function xhttpAssincrono(callBackFunction, type, value) {
     xhttp.send();
 }
 
+function getUsers() {
+    xhttpAssincrono(users, 1);
+}
+
+function users(response) {
+    let users = document.getElementById("names");
+    let select_users = document.createElement("option");
+
+    select_users.innerHTML = "Selecione um usuário";
+    select_users.setAttribute("value", 0);
+    select_users.setAttribute("disabled", "true");
+    select_users.setAttribute("selected", "true");
+
+    users.appendChild(select_users);
+
+    let data = JSON.parse(response);
+    for (let i = 0; i < data.length; i++) {
+        let li = document.createElement("option");
+        li.innerHTML = data[i].name;
+        li.value = data[i].id;
+
+        users.appendChild(li);
+    }
+}
+
 function request() {
+    let user_value = document.getElementById("names").value;
     let posts = document.getElementById("us-posts").checked;
     let todos = document.getElementById("us-todos").checked;
-    let user_value = document.getElementById("names").value;
     
     if (posts == true && user_value != 0) {
         getPosts(user_value);
@@ -58,7 +83,7 @@ function posts(response) {
     list.innerHTML = "";
     
     let data = JSON.parse(response);
-    for (i = 0; i < data.length; i++) {
+    for (let i = 0; i < data.length; i++) {
         let li = document.createElement("li");
         li.innerHTML = data[i].title;
 
@@ -83,7 +108,7 @@ function todos(response) {
     let filter_false = document.getElementById("us-todos-not_finished").checked;
     
     var data = JSON.parse(response);
-    for (i = 0; i < data.length; i++) {
+    for (let i = 0; i < data.length; i++) {
         if (all) {
             let li = document.createElement("li");
 
